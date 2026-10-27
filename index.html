@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="MerchMind PIM — Multimodal Fashion Catalog Enrichment, Brand-Voice Copilot & Enterprise Data Quality Engine for Luxury Retail.">
+  <title>MerchMind PIM — Multimodal Fashion Catalog & Brand Copilot</title>
+
+  <!-- Modern Editorial & Sans Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="app-container">
+    <!-- Header & Brand Bar -->
+    <header class="header-wrapper">
+      <div class="brand-identity">
+        <div class="logo-gem">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
+          </svg>
+        </div>
+        <div class="app-title-group">
+          <h1>MerchMind <span class="badge-tagline">PIM AI Copilot</span></h1>
+          <p style="font-size: 0.8rem; color: var(--text-muted);">Autonomous Luxury Catalog Enrichment & Multi-Channel
+            Syndication</p>
+        </div>
+      </div>
+
+      <!-- Multi-Brand Portfolio Selector -->
+      <nav class="brand-pill-bar" id="brandFilterBar">
+        <button class="brand-btn active" data-brand="all">
+          <span class="brand-dot" style="background: #9a7049;"></span> Luxury Portfolio
+        </button>
+        <button class="brand-btn" data-brand="brand1">
+          <span class="brand-dot" style="background: #9f7422;"></span> Brand One
+        </button>
+        <button class="brand-btn" data-brand="brand2">
+          <span class="brand-dot" style="background: #be185d;"></span> Brand Two
+        </button>
+        <button class="brand-btn" data-brand="brand3">
+          <span class="brand-dot" style="background: #334155;"></span> Brand Three
+        </button>
+      </nav>
+
+      <!-- Global Actions -->
+      <div class="header-actions">
+        <button class="btn-ghost" id="openExportBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          Export Syndication
+        </button>
+        <button class="btn-gold" id="openIngestModalBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="17 8 12 3 7 8"></polyline>
+            <line x1="12" y1="3" x2="12" y2="15"></line>
+          </svg>
+          Ingest Vendor Feed
+        </button>
+      </div>
+    </header>
+
+    <!-- Enterprise KPI Metric Banner -->
+    <section class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-header">
+          <span class="kpi-title">Catalog Health</span>
+          <div class="kpi-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+            </svg>
+          </div>
+        </div>
+        <div class="kpi-value-row">
+          <span class="kpi-value" id="kpiCatalogHealth">92%</span>
+          <span class="kpi-pill positive">+4.2% today</span>
+        </div>
+        <div class="kpi-subtext">Weighted completeness against GS1 & channel schemas</div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-header">
+          <span class="kpi-title">Active SKUs</span>
+          <div class="kpi-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+            </svg>
+          </div>
+        </div>
+        <div class="kpi-value-row">
+          <span class="kpi-value" id="kpiTotalSkus">3 Active</span>
+          <span class="kpi-pill positive">3 Brand Collections</span>
+        </div>
+        <div class="kpi-subtext">Luxury leather goods & footwear catalog</div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-header">
+          <span class="kpi-title">Multimodal Confidence</span>
+          <div class="kpi-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="m4.93 4.93 4.24 4.24"></path>
+              <path d="m14.83 9.17 4.24-4.24"></path>
+              <path d="m14.83 14.83 4.24 4.24"></path>
+              <path d="m9.17 14.83-4.24 4.24"></path>
+              <circle cx="12" cy="12" r="4"></circle>
+            </svg>
+          </div>
+        </div>
+        <div class="kpi-value-row">
+          <span class="kpi-value" id="kpiConfidence">97.0%</span>
+          <span class="kpi-pill positive">Vision + OCR</span>
+        </div>
+        <div class="kpi-subtext">Attribute extraction accuracy across silhouettes</div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-header">
+          <span class="kpi-title">Syndication Readiness</span>
+          <div class="kpi-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 14 14"></polyline>
+            </svg>
+          </div>
+        </div>
+        <div class="kpi-value-row">
+          <span class="kpi-value" id="kpiReadyRate">100%</span>
+          <span class="kpi-pill positive">Direct & Wholesale</span>
+        </div>
+        <div class="kpi-subtext">Shopify Plus, Saks Fifth Ave, Farfetch feeds</div>
+      </div>
+    </section>
+
+    <!-- Navigation Tabs -->
+    <div class="view-tabs">
+      <button class="tab-btn active" id="tabStudioBtn" data-view="studio">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 20h9"></path>
+          <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+        </svg>
+        AI Enrichment Studio
+      </button>
+      <button class="tab-btn" id="tabCatalogBtn" data-view="catalog">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="8" y1="6" x2="21" y2="6"></line>
+          <line x1="8" y1="12" x2="21" y2="12"></line>
+          <line x1="8" y1="18" x2="21" y2="18"></line>
+          <line x1="3" y1="6" x2="3.01" y2="6"></line>
+          <line x1="3" y1="12" x2="3.01" y2="12"></line>
+          <line x1="3" y1="18" x2="3.01" y2="18"></line>
+        </svg>
+        Enterprise Catalog Grid
+      </button>
+    </div>
+
+    <!-- VIEW 1: AI Enrichment Studio -->
+    <main class="studio-layout" id="studioView">
+      <!-- Left Column: Visual Viewport & Raw Ingestion -->
+      <aside class="visual-viewport-panel">
+        <div class="card-title-row">
+          <div>
+            <h2 id="activeSkuName">Cannage Quilted East-West Shoulder Bag</h2>
+            <p style="font-size: 0.76rem; color: var(--gold-dark); font-family: var(--font-mono); font-weight: 600;" id="activeSkuCode">
+              SKU: BR1-73995-BK</p>
+          </div>
+          <span class="section-tag" id="activeBrandBadge">Brand One</span>
+        </div>
+
+        <!-- High-Res Interactive Product Viewport -->
+        <div class="product-image-container" id="productImageViewport">
+          <img id="mainProductImg" src="assets/Brand1Item1.png" alt="Active SKU preview">
+          <!-- Dynamic Vision Pins injected here -->
+          <div id="visionPinsContainer"></div>
+        </div>
+
+        <!-- Raw Supplier Spec Sheet -->
+        <div class="supplier-box">
+          <div class="supplier-box-header">
+            <span class="supplier-label">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+              </svg>
+              Raw Vendor Ingestion Payload
+            </span>
+            <span style="font-size: 0.7rem; color: var(--text-subtle);" id="vendorDate">Oct 24, 2026</span>
+          </div>
+          <textarea class="supplier-textarea" id="vendorRawText" spellcheck="false"></textarea>
+        </div>
+
+        <!-- Agent Execution Trigger & Progress -->
+        <div class="agent-action-bar">
+          <button class="btn-enrich-agent" id="runAgentBtn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+            Trigger Multimodal AI Enrichment
+          </button>
+
+          <!-- Live Streaming Agent Trace -->
+          <div class="agent-pipeline-trace" id="agentTraceBox">
+            <div class="trace-step running" id="traceStep1">
+              <span class="spin-icon">⚙</span>
+              <span>[1/5] Ingesting visual tensor & raw vendor text...</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Right Column: PIM Canonical Attributes & Brand Voice Studio -->
+      <section class="pim-workspace-panel">
+
+        <!-- Section A: PIM Attribute Governance Table -->
+        <div class="workspace-card">
+          <div class="card-title-row">
+            <h2>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold-primary)" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              Standardized PIM Taxonomy Attributes
+            </h2>
+            <div style="display: flex; gap: 8px; align-items: center;">
+              <span style="font-size: 0.78rem; color: var(--text-muted);">Completeness:</span>
+              <span class="confidence-pill" id="skuCompletenessScore">84%</span>
+            </div>
+          </div>
+
+          <table class="attributes-table" id="attributesTable">
+            <tbody>
+              <!-- Dynamic rows rendered by JS -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Section B: Multi-Brand Voice Synthesizer -->
+        <div class="workspace-card">
+          <div class="card-title-row">
+            <h2>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold-primary)" stroke-width="2">
+                <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                <path d="M2 2l7.586 7.586"></path>
+                <circle cx="11" cy="11" r="2"></circle>
+              </svg>
+              Multi-Brand Voice Synthesis
+            </h2>
+            <div class="brand-voice-selector" id="brandVoiceSelector">
+              <button class="voice-btn active" data-voice="brand1">Brand One (Heritage)</button>
+              <button class="voice-btn" data-voice="brand2">Brand Two (Playful)</button>
+              <button class="voice-btn" data-voice="brand3">Brand Three (Architectural)</button>
+            </div>
+          </div>
+
+          <div class="copy-content-box">
+            <div class="copy-header-preview">
+              <input type="text" class="copy-title-input" id="copyTitle"
+                value="Cary Pebbled Leather Satchel in Warm Saddle">
+              <div class="copy-headline" id="copyHeadline">A masterclass in American leathercraft, built for effortless
+                everyday elegance.</div>
+            </div>
+
+            <label
+              style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold-dark); font-weight: 700; display: block; margin-bottom: 6px;">
+              Brand Romance Story
+            </label>
+            <textarea class="copy-romance-textarea" id="copyRomance" spellcheck="false"></textarea>
+
+            <label
+              style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold-dark); font-weight: 700; display: block; margin-bottom: 8px;">
+              Key E-Commerce Bullets
+            </label>
+            <ul class="bullet-points-list" id="copyBulletsList">
+              <!-- Rendered via JS -->
+            </ul>
+          </div>
+        </div>
+
+        <!-- Section C: Multi-Channel Syndication Compliance -->
+        <div class="workspace-card">
+          <div class="card-title-row">
+            <h2>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold-primary)" stroke-width="2">
+                <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                <line x1="6" y1="18" x2="6.01" y2="18"></line>
+              </svg>
+              Channel Syndication Readiness
+            </h2>
+            <span class="section-tag">Data Engineering Audit</span>
+          </div>
+
+          <div class="compliance-cards-row" id="complianceRow">
+            <!-- Channel cards rendered by JS -->
+          </div>
+        </div>
+
+      </section>
+    </main>
+
+    <!-- VIEW 2: Enterprise Catalog Grid -->
+    <section class="catalog-table-wrapper" id="catalogView" style="display: none;">
+      <div class="card-title-row" style="margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
+        <div>
+          <h2>Master PIM Catalog Table</h2>
+          <span style="font-size: 0.82rem; color: var(--text-muted);" id="catalogItemCount">Displaying Managed SKUs</span>
+        </div>
+        <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+          <select class="control-select" id="filterStatusSelect">
+            <option value="all">All Readiness Status</option>
+            <option value="syndication_ready">Syndication Ready (&gt;=85%)</option>
+            <option value="needs_review">Needs Review (&lt;85%)</option>
+          </select>
+          <select class="control-select" id="sortCompletenessSelect">
+            <option value="none">Sort by Completeness</option>
+            <option value="asc">Completeness (Low → High)</option>
+            <option value="desc">Completeness (High → Low)</option>
+          </select>
+          <button class="btn-gold" id="bulkEnrichBtn">
+            ✨ Bulk AI Enrich All
+          </button>
+        </div>
+      </div>
+
+      <table class="catalog-table">
+        <thead>
+          <tr>
+            <th>SKU & Style</th>
+            <th>Brand</th>
+            <th>Category & Taxonomy</th>
+            <th>Retail MSRP</th>
+            <th>Completeness</th>
+            <th>Status</th>
+            <th style="text-align: right;">Action</th>
+          </tr>
+        </thead>
+        <tbody id="catalogTableBody">
+          <!-- Populated by JS -->
+        </tbody>
+      </table>
+    </section>
+
+  </div>
+
+  <!-- Vendor Ingest Modal -->
+  <div class="modal-overlay" id="ingestModal">
+    <div class="modal-container" style="max-width: 620px;">
+      <div class="modal-header">
+        <div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.25rem;">Ingest Vendor Catalog Feed</h3>
+          <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 2px;">
+            Batch ingest raw vendor SKUs with automated schema mapping &amp; completeness scoring
+          </p>
+        </div>
+        <button class="btn-ghost" id="closeIngestModalBtn" style="padding: 4px 10px;">✕</button>
+      </div>
+      <div class="modal-body" style="display: flex; flex-direction: column; gap: 16px;">
+        <div class="prepackaged-feed-box">
+          <h4 style="font-size: 0.9rem; color: var(--gold-dark); font-weight: 700; margin-bottom: 6px; display: flex; align-items: center; gap: 8px;">
+            <span>✨</span> 1-click luxury feed
+          </h4>
+          <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 14px; line-height: 1.5;">
+            Instantly loads 18 vendor items across Brand One, Brand Two, and Brand Three with varying completeness scores (38% to 95%).
+          </p>
+          <button class="btn-gold" id="loadPrepackagedFeedBtn" style="width: 100%; justify-content: center;">
+            Load 18-SKU Luxury Feed
+          </button>
+        </div>
+
+        <div style="text-align: center; font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600;">
+          — Or Upload Custom Vendor Feed —
+        </div>
+
+        <div class="file-upload-dropzone" id="triggerFileInputBtn">
+          <input type="file" id="vendorFileInput" accept=".json,.csv" style="display: none;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold-primary)" stroke-width="2" style="margin: 0 auto 8px;">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="17 8 12 3 7 8"></polyline>
+            <line x1="12" y1="3" x2="12" y2="15"></line>
+          </svg>
+          <div style="font-size: 0.86rem; font-weight: 700; color: var(--text-main);">Click to upload JSON or CSV file</div>
+          <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;" id="fileUploadStatus">
+            Supports vendor_feed_raw.json or vendor_feed_raw.csv
+          </div>
+        </div>
+
+        <div id="ingestPreviewSummary" class="ingest-preview-box" style="display: none;"></div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-ghost" id="cancelIngestBtn">Cancel</button>
+        <button class="btn-gold" id="confirmIngestBtn" disabled>Confirm &amp; Ingest SKUs</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Syndication Export Modal -->
+  <div class="modal-overlay" id="exportModal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 style="font-family: var(--font-serif); font-size: 1.25rem;">Multi-Channel Syndication Feed</h3>
+        <button class="btn-ghost" id="closeModalBtn" style="padding: 4px 10px;">✕</button>
+      </div>
+      <div class="modal-body">
+        <div style="display: flex; gap: 8px; margin-bottom: 14px;">
+          <button class="voice-btn active" id="tabExportJSON">JSON-LD (Schema.org)</button>
+          <button class="voice-btn" id="tabExportCSV">CSV Flat File</button>
+        </div>
+        <pre class="code-viewer" id="exportCodeViewer"></pre>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-ghost" id="copyFeedBtn">Copy to Clipboard</button>
+        <button class="btn-gold" id="downloadFeedBtn">Download Feed</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="appToast">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold-primary)" stroke-width="2">
+      <polyline points="20 6 9 17 4 12"></polyline>
+    </svg>
+    <span id="toastMsg">Action completed successfully.</span>
+  </div>
+
+  <!-- Application Logic -->
+  <script src="catalog-data.js"></script>
+  <script src="schema-validator.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
