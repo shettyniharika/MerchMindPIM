@@ -117,29 +117,4 @@ Because MerchMind PIM is built with pure, high-performance web standards, it can
 
 ---
 
-## 🚀 Running the Project Locally
 
-No `npm install` or complex build scripts needed!
-
-1. Clone or open this folder:
-   ```bash
-   cd ~/Desktop/"antigravity space"/MerchMindPIM
-   ```
-2. Open `index.html` in your browser:
-   ```bash
-   open index.html
-   ```
-   Or run a local static server if preferred:
-   ```bash
-   npx serve .
-   ```
-
----
-
-## 💡 How This Showcases Your Unique Skills (For Interviews & Recruiters)
-
-When recruiters and hiring managers review this project, it stands out because:
-- **Enterprise Domain Mastery**: You demonstrate deep, practical knowledge of PIM architecture, GS1 retail taxonomy, and the multi-brand governance challenges at enterprise luxury holding companies.
-- **Data Engineering Rigor**: You enforce schema contracts, handle dirty vendor ingestion feeds (missing attributes, unparsed dimensions, tariff codes), and implement weighted data quality scoring.
-- **Applied Multimodal AI**: Rather than a generic chatbot or API wrapper, you engineered an interactive, multi-step copilot combining multimodal vision tokenization, brand-tone conditioning, and human-in-the-loop review.
-- **Executive Polish**: A state-of-the-art light luxury design that proves you build software with high attention to user experience, performance, and aesthetic standards.
